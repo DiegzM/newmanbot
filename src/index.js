@@ -1,17 +1,22 @@
 require('dotenv').config();
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, GatewayIntentBits, Collection } = require('discord.js');
+const fileLoader = require('./utils/fileLoader');
+const path = require('path');
 
 const client = new Client({
     intents: [
-        IntentsBitField.Flags.Guilds,
-        IntentsBitField.Flags.GuildMembers,
-        IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent
+        GatewayIntentBits.Guilds,
+        GatewayIntentBits.GuildMembers,
+        GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.MessageContent
     ]
 });
 
-client.on('ready', (c) => {
-    console.log(`${c.user.tag} is online.`)
-});
+const handlersPath = path.join(__dirname, '.', 'handlers');
+const handlerFiles = fileLoader(handlersPath);
 
-client.login(process.env.PUBLIC_KEY);
+for (const file of handlerFiles) {
+    require(file)(client);
+}
+
+client.login(process.env.TOKEN);
