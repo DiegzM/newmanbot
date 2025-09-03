@@ -5,7 +5,7 @@ A Discord.js chatbot for a Catholic community that implements the Magisterium AI
 ## Features 
 - Respond to user prompts related to the Catholic Faith using `/ask` 
 - Provide linked citations for users to explore further 
-- Fetch bible verses using `/bible`
+- Fetch bible verses using `/bible` and a random verse using `/randomverse`
 
 ## Access 
 Unfortunately, this is a private project and it is not available for public use. However, see "Demo" below for demonstration. 
