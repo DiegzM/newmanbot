@@ -169,8 +169,6 @@ module.exports = {
 
         const embedSize = titleLength + descLength + footerLength;
 
-        console.log(embedSize)
-
         if (currentLength + embedSize > 6000 && batch.length > 0) {
             if (first) {
                 await interaction.editReply({embeds: batch});

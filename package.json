@@ -11,6 +11,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "cheerio": "^1.1.0",
     "discord.js": "^14.19.3",
     "dotenv": "^16.5.0",
     "magisterium": "^0.0.5"
